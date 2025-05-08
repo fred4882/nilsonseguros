@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nilson Seguros</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(to right, #001f3f, #0074d9);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .logo h1 {
+      margin: 0;
+      font-size: 36px;
+      color: #003366; /* Azul escuro */
+    }
+    .logo h2 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 400;
+      color: #00bfff; /* Azul claro */
+    }
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(to bottom, #0074d9 50%, #001f3f 50%);
+      animation: none;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background-color: #001f3f;
+    }
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      padding: 15px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      position: relative;
+      transition: background 0.3s, transform 0.2s;
+    }
+    nav button::after {
+      content: '';
+      display: block;
+      width: 0%;
+      height: 2px;
+      background: #ffdc00;
+      transition: width 0.3s;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    nav button:hover::after,
+    nav button.active::after {
+      width: 80%;
+    }
+    nav button:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+    .content {
+      padding: 30px;
+      min-height: 300px;
+      background: white;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 1000px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: background-color 0.5s, color 0.5s;
+    }
+    .content.dark {
+      background: #001f3f;
+      color: white;
+    }
+    .content.light {
+      background: #0074d9;
+      color: white;
+    }
+    a {
+      color: #ffdc00;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover, a:focus {
+      text-decoration: underline;
+      outline: none;
+    }
+    .contact, .address, .phone {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      flex-wrap: wrap;
+    }
+    .contact img, .address img, .phone img {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      nav button {
+        width: 100%;
+      }
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <h1>Nilson</h1>
+    <h2>Seguros</h2>
+  </div>
+  <div class="spinner" id="spinner"></div>
+</header>
+
+<nav>
+  <button onclick="showTab('missao')"><i class="fas fa-bullseye"></i> Missão</button>
+  <button onclick="showTab('transparencia')"><i class="fas fa-eye"></i> Transparência</button>
+  <button onclick="showTab('abrangencia')"><i class="fas fa-globe"></i> Abrangência</button>
+  <button onclick="showTab('responsabilidade')"><i class="fas fa-hands-helping"></i> Responsabilidade</button>
+  <button onclick="showTab('parcerias')"><i class="fas fa-handshake"></i> Parcerias</button>
+  <button onclick="showTab('portfolio')"><i class="fas fa-briefcase"></i> Portfólio</button>
+  <button onclick="showTab('atendimento')"><i class="fas fa-headset"></i> Atendimento</button>
+  <button onclick="showTab('valores')"><i class="fas fa-star"></i> Valores</button>
+  <button onclick="showTab('produtos')"><i class="fas fa-box-open"></i> Produtos</button>
+  <button onclick="showTab('contato')"><i class="fas fa-envelope"></i> Contato</button>
+</nav>
+
+<div class="content dark" id="content">
+  <h2>Missão</h2>
+  <p>A Nilson Seguros é uma empresa dedicada a proporcionar a máxima segurança e tranquilidade para seus clientes. Nosso compromisso é oferecer soluções completas de seguros que atendem às necessidades individuais e empresariais de nossos clientes, com qualidade, confiança e inovação constante. Acreditamos que a segurança deve ser acessível, compreensível e, acima de tudo, confiável. Trabalhamos incansavelmente para oferecer o melhor em termos de atendimento e soluções tecnológicas, garantindo que nossos clientes sempre encontrem o que precisam quando se trata de proteção e cuidado.</p>
+  <p>Nossa missão vai além da simples venda de seguros. Buscamos criar relações duradouras e transparentes, focadas na experiência do cliente, e na busca constante pela excelência em cada serviço prestado.</p>
+</div>
+
+<script>
+  const spinner = document.getElementById('spinner');
+  const contentDiv = document.getElementById('content');
+  const navButtons = document.querySelectorAll('nav button');
+
+  const tabs = {
+    missao: `<h2>Missão</h2>
+      <p>A Nilson Seguros é uma empresa dedicada a proporcionar a máxima segurança e tranquilidade para seus clientes. Nosso compromisso é oferecer soluções completas de seguros que atendem às necessidades individuais e empresariais de nossos clientes, com qualidade, confiança e inovação constante. Acreditamos que a segurança deve ser acessível, compreensível e, acima de tudo, confiável. Trabalhamos incansavelmente para oferecer o melhor em termos de atendimento e soluções tecnológicas, garantindo que nossos clientes sempre encontrem o que precisam quando se trata de proteção e cuidado.</p>
+      <p>Nossa missão vai além da simples venda de seguros. Buscamos criar relações duradouras e transparentes, focadas na experiência do cliente, e na busca constante pela excelência em cada serviço prestado.</p>`,
+    transparencia: `<h2>Transparência</h2><p>Primamos pela ética, honestidade e clareza em todas as nossas interações. Nossos clientes são informados de cada detalhe do processo, garantindo segurança e confiança na contratação dos seguros.</p>`,
+    abrangencia: `<h2>Abrangência</h2><p>Estamos presentes em todo o território nacional desde 1993, atendendo clientes de diferentes perfis e setores. Nosso compromisso é estar ao lado do cliente em qualquer lugar e a qualquer momento.</p>`,
+    responsabilidade: `<h2>Responsabilidade</h2><p>Zelamos e administramos com simplicidade, agilidade e compromisso. Assumimos responsabilidade social e ambiental, contribuindo para uma sociedade mais justa e sustentável.</p>`,
+    parcerias: `<h2>Parcerias com Seguradoras</h2>
+      <ul>
+        <li><strong><a href="https://www.azulseguros.com.br" target="_blank">Azul Seguros</a>:</strong> Fundada em 2000, a Azul Seguros oferece soluções de seguros pessoais e empresariais.</li>
+        <li><strong><a href="https://www.hdi.com.br" target="_blank">HDI Seguros</a>:</strong> Com presença global, oferece seguros para veículos, vida, saúde, entre outros.</li>
+        <li><strong><a href="https://www.mapfre.com.br" target="_blank">Mapfre</a>:</strong> Uma das maiores seguradoras do mundo, com sede na Espanha, oferece seguros de automóveis, saúde, vida, e patrimoniais.</li>
+        <li><strong><a href="https://www.portoseguro.com.br" target="_blank">Porto Seguro</a>:</strong> Fundada em 1945, oferece uma vasta gama de seguros, incluindo auto, vida, saúde, e empresarial.</li>
+        <li><strong><a href="https://www.yelumseguros.com.br/Pages/Home.aspx" target="_blank">Yellum</a>:</strong> Seguradora com foco em soluções digitais inovadoras.</li>
+        <li><strong><a href="https://www.tokiomarine.com.br" target="_blank">Tokio Marine</a>:</strong> Uma das maiores seguradoras do Japão, oferece soluções para todos os tipos de seguros.</li>
+        <li><strong><a href="https://www.itau.com.br" target="_blank">Itaú Seguros</a>:</strong> Subsidiária do banco Itaú, oferece uma ampla gama de produtos de seguros.</li>
+        <li><strong><a href="https://www.ms-ins.com.br" target="_blank">Mitsui Sumitomo</a>:</strong> Parte do Mitsui Sumitomo Insurance Group.</li>
+        <li><strong><a href="https://www.ezze.com.br" target="_blank">EZZE</a>:</strong> Seguradora moderna com soluções focadas em seguros digitais.</li>
+        <li><strong><a href="https://www.ituran.com.br" target="_blank">Ituran</a>:</strong> Especializada em rastreamento veicular e seguros de automóveis.</li>
+      </ul>`,
+    portfolio: `<h2>Portfólio</h2><p>Nosso portfólio é amplo e diversificado, incluindo seguros de automóveis, vida, residência, comércio, celular e responsabilidade civil para construção. Oferecemos soluções para cada fase da vida.</p>`,
+    atendimento: `<h2>Atendimento</h2><p>Construímos uma relação de respeito, cordialidade e responsabilidade, oferecendo atendimento humanizado e ágil.</p>`,
+    valores: `<h2>Valores</h2><ul><li>Agilidade no atendimento</li><li>Credibilidade junto aos clientes e parceiros</li><li>Qualidade nos serviços</li><li>Reconhecimento no mercado</li></ul>`,
+    produtos: `<h2>Produtos</h2><ul><li>Auto</li><li>Vida</li><li>Residência</li><li>Comércio</li><li>Celular</li><li>RC Construção</li></ul>`,
+    contato: `<h2>Contato</h2>
+      <div class="contact">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp">
+        <a href="https://wa.me/5511998043438" target="_blank" rel="noopener">+55 11 99804-3438</a>
+      </div>
+      <div class="contact">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/gmail-login.png" alt="Gmail">
+        <a href="https://mail.google.com/mail/?view=cm&to=adm@nilsonseguros.com.br" target="_blank" rel="noopener">adm@nilsonseguros.com.br</a>
+      </div>
+      <div class="address">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/marker.png" alt="Endereço SP">
+        <a href="https://www.google.com/maps/search/?api=1&query=Rua+Santo+Antônio+de+Entre+Rios,+33+-+Jd+Carolina+-+São+Paulo" target="_blank" rel="noopener">Rua Santo Antônio de Entre Rios, 33 - Jd Carolina - São Paulo</a>
+      </div>
+      <div class="address">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/marker.png" alt="Endereço Piraju">
+        <a href="https://www.google.com/maps/search/?api=1&query=Rua+Rodolfo+Calesco+Galdensi,+183+-+Piraju,+SP" target="_blank" rel="noopener">Rua Rodolfo Calesco Galdensi, 183 - Piraju/SP</a>
+      </div>
+      <div class="phone">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/phone.png" alt="Telefone">
+        <a href="tel:11968085091">11 96808-5091</a>
+      </div>`
+  };
+
+  let isDark = true;
+
+  function showTab(tab) {
+    if (tabs[tab]) {
+      contentDiv.innerHTML = tabs[tab];
+      isDark = !isDark;
+      contentDiv.className = 'content ' + (isDark ? 'dark' : 'light');
+      spinner.style.animation = 'spin 1s linear infinite';
+      clearTimeout(spinner.timeoutId);
+      spinner.timeoutId = setTimeout(() => {
+        spinner.style.animation = 'none';
+      }, 1000);
+
+      navButtons.forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`nav button[onclick="showTab('${tab}')"]`).classList.add('active');
+    }
+  }
+
+  showTab('missao');
+</script>
+
+</body>
+</html>
