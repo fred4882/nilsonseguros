@@ -18,8 +18,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
-      box-sizing: border-box;
     }
     .logo img {
       width: 100%;
@@ -41,9 +39,6 @@
       font-size: 16px;
       position: relative;
       transition: background 0.3s, transform 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
     nav button::after {
       content: '';
@@ -112,15 +107,11 @@
     }
 
     @media (max-width: 600px) {
-      header {
-        height: auto;
-        padding: 20px 0;
-      }
       nav button {
         width: 100%;
-        text-align: left;
-        padding-left: 30px;
-        font-size: 14px;
+      }
+      header {
+        height: 180px;
       }
       .content {
         padding: 20px;
@@ -138,7 +129,7 @@
 
 <header>
   <div class="logo">
-    <img src="logo-nilson.jpg" alt="Nilson-Logo">
+    <img src="logo nilson .jpg" alt="Nilson Seguros Logo">
   </div>
 </header>
 
@@ -187,9 +178,9 @@ Nossa missão vai além da simples venda de seguros. Buscamos criar relações d
         <li><a href="https://www.ituran.com.br" target="_blank">IturanSeguros</a>:</strong>Especializada em rastreamento veicular e seguros de automóveis.
       </ul>`,
     portfolio: `<h2>Portfólio</h2>
-      <p>Nosso portfólio é amplo e diversificado,visando atender as necessidades dos clientes</p>`,
+      <p>Nosso portfólio é amplo e diversificado...</p>`,
     atendimento: `<h2>Atendimento</h2>
-      <p>Uma relação de respeito, cordialidade e responsabilidade com os clientes</p>`,
+      <p>Uma relação de respeito, cordialidade e responsabilidade com os clientes...</p>`,
     valores: `<h2>Valores</h2>
       <ul>
         <li>Agilidade no atendimento</li>
@@ -239,7 +230,7 @@ Nossa missão vai além da simples venda de seguros. Buscamos criar relações d
       isDark = !isDark;
       contentDiv.className = 'content ' + (isDark ? 'dark' : 'light');
       navButtons.forEach(btn => btn.classList.remove('active'));
-      document.querySelector(`nav button[onclick="showTab('${tab}')"]`).classList.add('active');
+      document.querySelector(nav button[onclick="showTab('${tab}')"]).classList.add('active');
     }
   }
 
@@ -248,4 +239,3 @@ Nossa missão vai além da simples venda de seguros. Buscamos criar relações d
 
 </body>
 </html>
-
