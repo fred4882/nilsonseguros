@@ -18,6 +18,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
     }
     .logo img {
       width: 100%;
@@ -39,6 +41,9 @@
       font-size: 16px;
       position: relative;
       transition: background 0.3s, transform 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
     nav button::after {
       content: '';
@@ -107,11 +112,15 @@
     }
 
     @media (max-width: 600px) {
+      header {
+        height: auto;
+        padding: 20px 0;
+      }
       nav button {
         width: 100%;
-      }
-      header {
-        height: 180px;
+        text-align: left;
+        padding-left: 30px;
+        font-size: 14px;
       }
       .content {
         padding: 20px;
@@ -129,7 +138,7 @@
 
 <header>
   <div class="logo">
-    <img src="logo nilson .jpg" alt="Nilson Seguros Logo">
+    <img src="logo-nilson.jpg" alt="Nilson Seguros Logo">
   </div>
 </header>
 
@@ -178,9 +187,9 @@ Nossa missão vai além da simples venda de seguros. Buscamos criar relações d
         <li><a href="https://www.ituran.com.br" target="_blank">IturanSeguros</a>:</strong>Especializada em rastreamento veicular e seguros de automóveis.
       </ul>`,
     portfolio: `<h2>Portfólio</h2>
-      <p>Nosso portfólio é amplo e diversificado...</p>`,
+      <p>Nosso portfólio é amplo e diversificado,visando atender as necessidades dos clientes</p>`,
     atendimento: `<h2>Atendimento</h2>
-      <p>Uma relação de respeito, cordialidade e responsabilidade com os clientes...</p>`,
+      <p>Uma relação de respeito, cordialidade e responsabilidade com os clientes</p>`,
     valores: `<h2>Valores</h2>
       <ul>
         <li>Agilidade no atendimento</li>
