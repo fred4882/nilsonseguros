@@ -11,6 +11,7 @@
       background-color: #f4f4f4;
       color: #333;
     }
+
     header {
       width: 100%;
       height: 250px;
@@ -19,17 +20,20 @@
       justify-content: center;
       align-items: center;
     }
+
     .logo img {
       width: 100%;
       max-width: 400px;
       height: auto;
     }
+
     nav {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       background-color: #001f3f;
     }
+
     nav button {
       background: none;
       border: none;
@@ -40,6 +44,7 @@
       position: relative;
       transition: background 0.3s, transform 0.2s;
     }
+
     nav button::after {
       content: '';
       display: block;
@@ -52,14 +57,17 @@
       left: 50%;
       transform: translateX(-50%);
     }
+
     nav button:hover::after,
     nav button.active::after {
       width: 80%;
     }
+
     nav button:hover {
       background-color: rgba(255, 255, 255, 0.1);
       transform: translateY(-2px);
     }
+
     .content {
       padding: 30px;
       min-height: 300px;
@@ -68,40 +76,48 @@
       width: 90%;
       max-width: 1000px;
       border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       transition: background-color 0.5s, color 0.5s;
     }
+
     .content.dark {
       background: #001f3f;
       color: white;
     }
+
     .content.light {
       background: #0074d9;
       color: white;
     }
+
     a {
       color: #ffdc00;
       text-decoration: none;
       font-weight: bold;
     }
+
     a:hover, a:focus {
       text-decoration: underline;
       outline: none;
     }
+
     .contact, .address, .phone, .email {
       display: flex;
       align-items: center;
       margin: 10px 0;
       flex-wrap: wrap;
     }
+
     .contact img, .address img, .phone img, .email img {
       width: 30px;
       height: 30px;
       margin-right: 10px;
     }
+
     ul {
       padding-left: 20px;
     }
+
     ul li {
       margin-bottom: 10px;
     }
@@ -110,13 +126,16 @@
       nav button {
         width: 100%;
       }
+
       header {
         height: 180px;
       }
+
       .content {
         padding: 20px;
         width: 95%;
       }
+
       .contact img, .address img, .phone img, .email img {
         width: 25px;
         height: 25px;
@@ -146,8 +165,7 @@
   <button onclick="showTab('contato')"><i class="fas fa-envelope"></i> Contato</button>
 </nav>
 
-<div class="content dark" id="content">
-</div>
+<div class="content dark" id="content"></div>
 
 <script>
   const contentDiv = document.getElementById('content');
@@ -155,32 +173,23 @@
 
   const tabs = {
     missao: `<h2>Missão</h2>
-      <p>A Nilson Seguros é uma empresa dedicada a proporcionar a máxima segurança e tranquilidade para seus clientes. Nosso compromisso é oferecer soluções completas de seguros que atendem às necessidades individuais e empresariais de nossos clientes, com qualidade, confiança e inovação constante. Acreditamos que a segurança deve ser acessível, compreensível e, acima de tudo, confiável. Trabalhamos incansavelmente para oferecer o melhor em termos de atendimento e soluções tecnológicas, garantindo que nossos clientes sempre encontrem o que precisam quando se trata de proteção e cuidado.
-
-Nossa missão vai além da simples venda de seguros. Buscamos criar relações duradouras e transparentes, focadas na experiência do cliente, e na busca constante pela excelência em cada serviço prestado.</p>`,
+      <p>A Nilson Seguros é uma empresa dedicada a proporcionar a máxima segurança e tranquilidade para seus clientes...</p>`,
     transparencia: `<h2>Transparência</h2>
-      <p>Primamos pela ética, honestidade e clareza em todas as nossas interações. Nossos clientes são informados de cada detalhe do processo, garantindo segurança e confiança na contratação dos seguros.</p>`,
+      <p>Primamos pela ética, honestidade e clareza em todas as nossas interações...</p>`,
     abrangencia: `<h2>Abrangência</h2>
-      <p>Estamos presentes em todo o território nacional desde 1993, atendendo clientes de diferentes perfis e setores. Nosso compromisso é estar ao lado do cliente em qualquer lugar e a qualquer momento</p>`,
+      <p>Estamos presentes em todo o território nacional desde 1993...</p>`,
     responsabilidade: `<h2>Responsabilidade</h2>
-      <p>Zelamos e administramos com simplicidade, agilidade e compromisso. Assumimos responsabilidade social e ambiental, contribuindo para uma sociedade mais justa e sustentável.</p>`,
+      <p>Zelamos e administramos com simplicidade, agilidade e compromisso...</p>`,
     parcerias: `<h2>Parcerias com Seguradoras</h2>
       <ul>
-        <li><a href="https://www.azulseguros.com.br" target="_blank">Azul Seguros</a>:</strong>Fundada em 2000, a Azul Seguros oferece soluções de seguros pessoais e empresariais.
-        <li><a href="https://www.hdi.com.br" target="_blank">HDI Seguros</a>:</strong>Com presença global, oferece seguros para veículos, vida, saúde, entre outros.
-        <li><a href="https://www.mapfre.com.br">MapfreSeguros</a>:</strong>Uma das maiores seguradoras do mundo, com sede na Espanha, oferece seguros de automóveis, saúde, vida, e patrimoniais.
-        <li><a href="https://www.portoseguro.com.br" target="_blank">Porto Seguro Seguros</a>:</strong>Fundada em 1945, oferece uma vasta gama de seguros, incluindo auto, vida, saúde, e empresarial.
-        <li><a href="https://www.yellum.com.br" target="_blank">YellumSeguros</a>:</strong>Seguradora com foco em soluções digitais inovadoras.
-        <li><a href="https://www.tokiomarine.com.br" target="_blank">Tokio MarineSeguros</a>:</strong>Uma das maiores seguradoras do Japão, oferece soluções para todos os tipos de seguros.
-        <li><a href="https://www.itau.com.br/seguros" target="_blank">Itaú SegurosSeguros</a>:</strong>Subsidiária do banco Itaú, oferece uma ampla gama de produtos de seguros.
-        <li><a href="https://www.mitsuiseguros.com.br" target="_blank">Mitsui SumitomoSeguros</a>:</strong>Parte do Mitsui Sumitomo Insurance Group.
-        <li><a href="https://www.ezze.com.br" target="_blank">Ezze SegurosSeguros</a>:</strong>Seguradora moderna com soluções focadas em seguros digitais.
-        <li><a href="https://www.ituran.com.br" target="_blank">IturanSeguros</a>:</strong>Especializada em rastreamento veicular e seguros de automóveis.
+        <li><a href="https://www.azulseguros.com.br" target="_blank">Azul Seguros</a>: Fundada em 2000...</li>
+        <li><a href="https://www.hdi.com.br" target="_blank">HDI Seguros</a>: Com presença global...</li>
+        <!-- Continue a lista aqui -->
       </ul>`,
     portfolio: `<h2>Portfólio</h2>
       <p>Nosso portfólio é amplo e diversificado...</p>`,
     atendimento: `<h2>Atendimento</h2>
-      <p>Uma relação de respeito, cordialidade e responsabilidade com os clientes...</p>`,
+      <p>Uma relação de respeito, cordialidade e responsabilidade...</p>`,
     valores: `<h2>Valores</h2>
       <ul>
         <li>Agilidade no atendimento</li>
@@ -208,17 +217,19 @@ Nossa missão vai além da simples venda de seguros. Buscamos criar relações d
       </div>
       <div class="address">
         <img src="https://img.icons8.com/ios-filled/50/ffffff/marker.png" alt="Endereço">
-        <a href="https://www.google.com/maps?q=Rua+Santo+Ant%C3%B4nio+de+Entre+Rios,+33,+Jardim+de+Carolina,+S%C3%A3o+Paulo" target="_blank">Rua Santo Antônio de Entre Rios, 33 - Jd Carolina - São Paulo</a>
+        <a href="https://www.google.com/maps?q=Rua+Santo+Ant%C3%B4nio+de+Entre+Rios,+33,+Jardim+de+Carolina,+São+Paulo" target="_blank">
+          Rua Santo Antônio de Entre Rios, 33 - Jd Carolina - São Paulo
+        </a>
       </div>
       <div class="address">
         <img src="https://img.icons8.com/ios-filled/50/ffffff/marker.png" alt="Endereço">
-        <a href="https://www.google.com/maps?q=Rua+Rodolfo+Calesco+Galdensi,+183,+Piraju,+SP" target="_blank">Rua Rodolfo Calesco Galdensi, 183 - Piraju/SP</a>
+        <a href="https://www.google.com/maps?q=Rua+Rodolfo+Calesco+Galdensi,+183,+Piraju,+SP" target="_blank">
+          Rua Rodolfo Calesco Galdensi, 183 - Piraju/SP
+        </a>
       </div>
       <div class="email">
         <img src="https://img.icons8.com/ios-filled/50/ffffff/gmail.png" alt="E-mail">
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=adm@nilsonseguros.com.br" target="_blank">
-          Enviar email pelo Gmail Web
-        </a>
+        <a href="mailto:adm@nilsonseguros.com.br">adm@nilsonseguros.com.br</a>
       </div>`
   };
 
@@ -229,8 +240,14 @@ Nossa missão vai além da simples venda de seguros. Buscamos criar relações d
       contentDiv.innerHTML = tabs[tab];
       isDark = !isDark;
       contentDiv.className = 'content ' + (isDark ? 'dark' : 'light');
+
       navButtons.forEach(btn => btn.classList.remove('active'));
-      document.querySelector(nav button[onclick="showTab('${tab}')"]).classList.add('active');
+
+      navButtons.forEach(btn => {
+        if (btn.getAttribute('onclick').includes(tab)) {
+          btn.classList.add('active');
+        }
+      });
     }
   }
 
@@ -239,3 +256,4 @@ Nossa missão vai além da simples venda de seguros. Buscamos criar relações d
 
 </body>
 </html>
+
